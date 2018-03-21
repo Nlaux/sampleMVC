@@ -1,0 +1,14 @@
+﻿@using Sitecore.Mvc
+@model SampleMvc.Models.SampleMvcInnerSublayoutViewModel
+
+<div id="InnerCenter">
+    <div id="Header">
+        @Html.Sitecore().Placeholder("Header")
+    </div>
+    <div id="Content">
+        <p>Parent Guid ID: </p>@ViewBag.Message
+
+        @Html.Sitecore().Placeholder("content")
+    </div>
+    <div id="Footer"><hr class="divider" />&#169; @Model.CurrentYear Sitecore</div>
+</div>
