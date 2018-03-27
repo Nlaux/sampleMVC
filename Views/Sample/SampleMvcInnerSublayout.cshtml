@@ -3,10 +3,43 @@
 
 <div id="InnerCenter">
     <div id="Header">
+        <p>Parent Guid: @ViewBag.parentGuid</p>
+        <p>Parent Guid Template ID: @ViewBag.templateID</p>
+        <br />
+        <p>Children Guids of Parent Guid:</p>
+        <ul>
+            @for (int i = 0; i < ViewBag.tempList.Count; i++)
+            {
+                <li>Template ID: @ViewBag.tempList[i].ID</li>
+            }
+        </ul>
+
+        <ul>
+            @for (int c = 0; c < ViewBag.tempList.Count; c++)
+            {
+            <li>
+                <strong>Child Headline:</strong> @Html.Raw(ViewBag.tempList[c].Fields["Headline"])
+                <br />
+                <strong>Child Introduction:</strong>
+                <br />
+                <span class="truncate">@Html.Raw(ViewBag.tempList[c].Fields["Introduction"])</span>
+                <br />
+                <strong>Child Content:</strong>
+                <br />
+                @Html.Raw(ViewBag.tempList[c].Fields["Content"])
+                <br />
+                <br />
+            </li>
+               
+            }
+        </ul>
+   
+        <br />
+
         @Html.Sitecore().Placeholder("Header")
     </div>
     <div id="Content">
-        <p>Parent Guid ID: </p>@ViewBag.Message
+
 
         @Html.Sitecore().Placeholder("content")
     </div>
